@@ -250,15 +250,6 @@ var User = (function () {
 		var groupData = config.groups[group];
 		var checkedGroups = {};
 
-		if (room && room.auth) {
-			if (permission === 'broadcast' && group !== ' ') return true;
-			group = room.auth[this.userid]||' ';
-			if (permission === 'broadcast' && group !== ' ') return true;
-			if (group === '#' && permission in {mute:1, ban:1, lock:1, announce:1, declare:1, modchat:1, roommod:1}) return true;
-			if (groupData && groupData['root']) return true;
-			return false;
-		}
-
 		while (groupData) {
 			// Cycle checker
 			if (checkedGroups[group]) return false;
