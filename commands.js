@@ -981,7 +981,7 @@ var commands = exports.commands = {
 		if (!targetUser) return this.sendReply("User '"+this.targetUsername+"' is not online.");
 		if (!this.can('makeroom', targetUser, room)) return false;
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
-		if (target === 'off') {
+		/*if (target === 'off') {
 			if (room.auth[userid] !== '#') return this.sendReply("User '"+name+"' is not a room owner.");
 			delete room.auth[userid];
 			this.sendReply('('+name+' is no longer the Room Owner.)');
@@ -989,7 +989,7 @@ var commands = exports.commands = {
 			if (room.chatRoomData) {
 			Rooms.global.writeChatRoomData();
 			return;
-		} 
+		}*/ 
 		var name = targetUser.name;
 		room.auth[targetUser.userid] = '#';
 		this.addModCommand(''+name+' was appointed Room Owner by '+user.name+'.');
