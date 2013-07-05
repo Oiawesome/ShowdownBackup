@@ -971,32 +971,6 @@ var commands = exports.commands = {
 	/*********************************************************
 	 * Rooms: Commands
 	 *********************************************************/
-
-	roomowner: function(target, room, user) {
-		if (!room.chatRoomData) {
-			this.sendReply("/roommod - This room isn't designed for per-room moderation to be added");
-		}
-		var target = this.splitTarget(target, true);
-		var targetUser = this.targetUser;
-		if (!targetUser) return this.sendReply("User '"+this.targetUsername+"' is not online.");
-		if (!this.can('makeroom', targetUser, room)) return false;
-		if (!room.auth) room.auth = room.chatRoomData.auth = {};
-		/*if (target === 'off') {
-			if (room.auth[userid] !== '#') return this.sendReply("User '"+name+"' is not a room owner.");
-			delete room.auth[userid];
-			this.sendReply('('+name+' is no longer the Room Owner.)');
-			if (targetUser) targetUser.updateIdentity();
-			if (room.chatRoomData) {
-			Rooms.global.writeChatRoomData();
-			return;
-		}*/ 
-		var name = targetUser.name;
-		room.auth[targetUser.userid] = '#';
-		this.addModCommand(''+name+' was appointed Room Owner by '+user.name+'.');
-		room.onUpdateIdentity(targetUser);
-		Rooms.global.writeChatRoomData();
-	},
-
 	roomdesc: function(target, room, user) {
 		if (!target) {
 			if (!this.canBroadcast()) return;
