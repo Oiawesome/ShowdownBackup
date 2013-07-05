@@ -20,4 +20,5 @@ exports.BattleItems = {
 		num: -100,
 		gen: 4,
 		desc: "Holder's use of Hyper Storm lasts 8 turns instead of 5."
-	},
+	}
+};
