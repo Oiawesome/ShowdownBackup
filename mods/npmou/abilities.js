@@ -171,6 +171,18 @@
 		rating: 5,
 		num: 1006
 	},
+	"venomousgas": {
+		desc: "When this Pokemon enters the battlefield, it causes a permanent Poison Fog that can only be stopped by Air Lock, Cloud Nine or another weather condition.",
+		shortDesc: "On switch-in, this Pokemon summons Poison Fog until another weather replaces it.",
+		onStart: function(source) {
+			this.setWeather('poisonfog');
+			this.weatherData.duration = 0;
+		},
+		id: "venomousgas",
+		name: "Venomous Gas",
+		rating: 5,
+		num: 1007
+	},
   	"gravitation": {
   		desc: "Summons a 5-turn Gravity upon switch in.",
   		shortDesc: "Summons 5 turn Auto-Gravity.",
