@@ -242,8 +242,8 @@
       			onAfterMoveSecondarySelf: function(pokemon, target, move) {
         			if (pokemon.template.speciesid === 'utsukaishadou' && pokemon.formeChange('Utsukai-Koutou')) {
           				this.add('-formechange', pokemon, 'Utsukai-Koutou');
-        			} else if (pokemon.formeChange('Utsukai-Koutou')) {
-          				this.add('-formechange', pokemon, 'Utsukai-Shoudou');
+        			} else if (pokemon.formeChange('Utsukai-Shadou')) {
+          				this.add('-formechange', pokemon, 'Utsukai-Shadou');
         			}
         			pokemon.removeVolatile('solarrelease');
       			}
