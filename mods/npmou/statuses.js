@@ -28,6 +28,9 @@ exports.BattleStatuses = {
 			return basePower * 1.5;
 		}
 	},
+	onSwitchIn: function(pokemon) {
+		pokemon.trySetStatus('tox');
+	},
 	onStart: function(battle, source, effect) {
 		if (effect && effect.effectType === 'Ability') {
 			this.effectData.duration = 0;
@@ -42,7 +45,6 @@ exports.BattleStatuses = {
 		this.eachEvent('Weather');
 	},
 	onWeather: function(target) {
-		this.trySetStatus('tox');
 		if (target.hasType('Poison')) {
 			this.heal(target.maxhp/16);
 		}
