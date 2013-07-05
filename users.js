@@ -168,7 +168,7 @@ var User = (function () {
 		this.userid = toUserid(this.name);
 		this.group = config.groupsranking[0];
 
-		var trainersprites = [1, 2, 101, 102, 169, 170, 265, 266];
+		var trainersprites = [217, 218, 238, 239];
 		this.avatar = trainersprites[Math.floor(Math.random()*trainersprites.length)];
 
 		this.connected = true;
@@ -255,7 +255,6 @@ var User = (function () {
 			group = room.auth[this.userid]||' ';
 			if (permission === 'broadcast' && group !== ' ') return true;
 			if (group === '#' && permission in {mute:1, ban:1, lock:1, announce:1, declare:1, modchat:1, roommod:1}) return true;
-			if (group === '@' && (!target || target.group === ' ') && permission in {mute:1, lock:1, ban:1, announce:1}) return true;
 			if (groupData && groupData['root']) return true;
 			return false;
 		}
